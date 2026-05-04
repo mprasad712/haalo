@@ -45,7 +45,7 @@ def upgrade() -> None:
         ),
     )
     op.create_index(
-        "ix_password_reset_token_hash",
+        "ix_password_reset_token_token_hash",
         "password_reset_token",
         ["token_hash"],
         unique=True,
@@ -59,7 +59,7 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     op.drop_index("ix_password_reset_token_user_id", table_name="password_reset_token")
-    op.drop_index("ix_password_reset_token_hash", table_name="password_reset_token")
+    op.drop_index("ix_password_reset_token_token_hash", table_name="password_reset_token")
     op.drop_constraint(
         "fk_password_reset_token_user_id_user",
         "password_reset_token",
