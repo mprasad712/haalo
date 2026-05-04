@@ -1,7 +1,7 @@
 """Create password_reset_token table
 
 Revision ID: 20260504_password_reset_token
-Revises: None
+Revises: 20260317_merge_all
 Create Date: 2026-05-04
 
 Single-use password reset tokens for the "forgot password" flow.
@@ -20,8 +20,8 @@ from alembic import op
 
 
 revision: str = "20260504_password_reset_token"
-down_revision: Union[str, Sequence[str], None] = None  # standalone; picked up by next merge head
-branch_labels: Union[str, Sequence[str], None] = ("password_reset_token",)
+down_revision: Union[str, Sequence[str], None] = "20260317_merge_all"
+branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
 
